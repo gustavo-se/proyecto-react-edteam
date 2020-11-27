@@ -1,17 +1,20 @@
 import React from 'react';
-import "./styles/style.scss"
-import Banner from './Banner'
-import CourseGrid from './CourseGrid'
+import "../styles/style.scss"
+import CourseGrid from './organisms/CourseGrid'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Course from './Course';
+import Course from './pages/Course';
+import Form from './pages/Form'
+import Home from './pages/home';
 
 const App = () => (
 
 <Router>
+  {/* <Mainmenu/> */}
   <Switch>
-      <Route path='/' exact component={Banner} />
+      <Route path='/' exact component={Home} />
       <Route path='/cursos/:id' component={Course} />
       <Route path='/cursos'  component={CourseGrid} />
+      <Route path='/formulario' component={()=> <Form name='Pagina de contacto'/>} />
       <Route component={()=>(
         <div className='ed-grid' >
           <h1>Error 404</h1>
