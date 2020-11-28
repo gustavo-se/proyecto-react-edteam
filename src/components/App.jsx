@@ -4,17 +4,19 @@ import CourseGrid from './organisms/CourseGrid'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Course from './pages/Course';
 import Form from './pages/Form'
-import Home from './pages/home';
-
+import Home from './pages/Home';
+import MainMenu from './organisms/MainMenu'
+import Users from './pages/Users';
 const App = () => (
 
 <Router>
-  {/* <Mainmenu/> */}
+  <MainMenu/>
   <Switch>
       <Route path='/' exact component={Home} />
       <Route path='/cursos/:id' component={Course} />
       <Route path='/cursos'  component={CourseGrid} />
-      <Route path='/formulario' component={()=> <Form name='Pagina de contacto'/>} />
+      <Route path='/usuarios'  component={Users} />
+      <Route path='/formulario' component={Form} />
       <Route component={()=>(
         <div className='ed-grid' >
           <h1>Error 404</h1>
