@@ -2,7 +2,7 @@ import React from 'react';
 import "../styles/style.scss"
 import CourseGrid from './organisms/CourseGrid'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Course from './pages/Course';
+import Courses from './pages/Course';
 import Form from './pages/Form'
 import Home from './pages/Home';
 import MainMenu from './organisms/MainMenu'
@@ -13,8 +13,8 @@ const App = () => (
   <MainMenu/>
   <Switch>
       <Route path='/' exact component={Home} />
-      <Route path='/cursos/:id' component={Course} />
-      <Route path='/cursos'  component={CourseGrid} />
+      <Route path='/cursos/:id' component={Courses} />
+      <Route path='/cursos'  component={Courses} />
       <Route path='/usuarios'  component={Users} />
       <Route path='/formulario' component={Form} />
       <Route component={()=>(
