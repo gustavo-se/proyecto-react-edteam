@@ -3,7 +3,7 @@ import CourseCard from '../molecules/CourseCard'
 import whithLoader from '../HOC/withLoader'
 
 const CourseGrid = ({courses}) => {
-
+  return(
     <div className='ed-grid m-grid-4'>
     {
       courses.map(c => (
@@ -18,6 +18,6 @@ const CourseGrid = ({courses}) => {
             
             />))}
     </div>
-}
+    )}
 
 export default whithLoader('courses', CourseGrid) 

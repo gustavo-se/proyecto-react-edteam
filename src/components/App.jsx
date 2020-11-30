@@ -1,8 +1,7 @@
 import React from 'react';
 import "../styles/style.scss"
-import CourseGrid from './organisms/CourseGrid'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Courses from './pages/Course';
+import Courses from './pages/Courses';
 import Form from './pages/Form'
 import Home from './pages/Home';
 import MainMenu from './organisms/MainMenu'
