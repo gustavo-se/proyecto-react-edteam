@@ -3,7 +3,8 @@ import { ADD_TO_CART, QUIT_FROM_CART } from './actions'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 const initialStore = {
- cart: []
+ cart: [],
+ courses: []
 }
 
 const rootReducer = (state = initialStore , {type, id}) =>{
