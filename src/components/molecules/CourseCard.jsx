@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { addToCart } from '../../redux/actionsCreators';
+import { addToCart, quitFromCart  } from '../../redux/actionsCreators';
 
 //const mayorDeEdad = edad => edad > 18
 
@@ -13,7 +13,7 @@ import { addToCart } from '../../redux/actionsCreators';
 //       'price': '50usd'
 // }
 
-const CourseCard= ({title, image, price, professor, id, addCourseCart, cart}) => (
+const CourseCard= ({title, image, price, professor, id, addCourseCart, cart, quitCourseFromCart}) => (
 
 <article className="card">
   <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
@@ -35,12 +35,20 @@ const CourseCard= ({title, image, price, professor, id, addCourseCart, cart}) =>
       </div>
     </div>
     <div className="s-main-center">
-      <button className="button--ghost-alert button--tiny"
-       onClick={() => addCourseCart(id)}>
-         { cart.find(a => a === id)
-         ?"Curso agregado al carrito"
-         :`$ ${price}`}
-         </button>
+
+      { cart.find(a => a === id)
+        ? 
+        <button className="button--ghost-alert button--tiny"
+        onClick={() => quitCourseFromCart(id)}>
+          Remover del carrito
+        </button>
+        :
+        <button className="button--ghost-alert button--tiny"
+          onClick={() => addCourseCart(id)}>
+          {`$ ${price}`}
+        </button>
+      }
+
     </div>
   </div>
 </article>
@@ -67,6 +75,9 @@ const mapStateToProps = state => (
 const mapDispatchToProps = dispatch => ({ 
   addCourseCart(id){
     dispatch(addToCart(id))
+  },
+  quitCourseFromCart(id){
+    dispatch(quitFromCart(id))
   }
 })
 

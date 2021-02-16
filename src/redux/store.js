@@ -1,5 +1,5 @@
 import { createStore } from 'redux'
-import { ADD_TO_CART } from './actions'
+import { ADD_TO_CART, QUIT_FROM_CART } from './actions'
 
 const initialStore = {
  cart: []
@@ -15,7 +15,13 @@ const rootReducer = (state = initialStore , {type, id}) =>{
    cart: state.cart.concat(id)
   }
  }
-
+ 
+ if(type === QUIT_FROM_CART){
+  return {
+   ...state,
+   cart: state.cart.filter(c => c !== id)
+  }
+ }
  return state
 }
 
