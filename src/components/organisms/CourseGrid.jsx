@@ -20,4 +20,4 @@ const CourseGrid = ({courses}) => {
     </div>
     )}
 
-export default whithLoader('courses', CourseGrid) 
+export default  CourseGrid

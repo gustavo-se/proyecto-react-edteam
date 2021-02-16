@@ -3,6 +3,9 @@ import "../styles/style.scss"
 import AppRoutes from './templates/AppRoutes'
 import { Provider } from 'react-redux'
 import store from '../redux/store'
+import { getCoursesList } from '../redux/actionsCreators';
+
+store.dispatch(getCoursesList())
 
 const App = () => (
 
