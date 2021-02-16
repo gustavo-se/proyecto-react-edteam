@@ -13,7 +13,7 @@ import { addToCart } from '../../redux/actionsCreators';
 //       'price': '50usd'
 // }
 
-const CourseCard= ({title, image, price, professor, id, addCourseCart}) => (
+const CourseCard= ({title, image, price, professor, id, addCourseCart, cart}) => (
 
 <article className="card">
   <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
@@ -36,7 +36,11 @@ const CourseCard= ({title, image, price, professor, id, addCourseCart}) => (
     </div>
     <div className="s-main-center">
       <button className="button--ghost-alert button--tiny"
-       onClick={() => addCourseCart(id)}>{`$ ${price}`}</button>
+       onClick={() => addCourseCart(id)}>
+         { cart.find(a => a === id)
+         ?"Curso agregado al carrito"
+         :`$ ${price}`}
+         </button>
     </div>
   </div>
 </article>
@@ -54,7 +58,11 @@ CourseCard.defaultProps={
   price: "--"
 }
 
-const mapStateToProps = () => ({})
+const mapStateToProps = state => (
+  {
+    cart: state.cart
+  }
+)
 
 const mapDispatchToProps = dispatch => ({ 
   addCourseCart(id){
