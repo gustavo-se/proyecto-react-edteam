@@ -6,6 +6,6 @@ const Courses = ({courses}) => <CourseGrid courses = { courses } />
 
 
 const mapStateToProps = state => ({
-    courses: state.courses
+    courses: state.coursesReducer.courses
 })
 export default connect(mapStateToProps, {})(Courses)  

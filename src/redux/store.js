@@ -1,10 +1,12 @@
-import { createStore } from 'redux'
+import { combineReducers, createStore } from 'redux'
 import { ADD_TO_CART, QUIT_FROM_CART } from './actions'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 const initialStore = {
  cart: [],
- courses: []
+}
+const initialCourses = {
+ courses : []
 }
 
 const rootReducer = (state = initialStore , {type, id}) =>{
@@ -27,4 +29,8 @@ const rootReducer = (state = initialStore , {type, id}) =>{
  return state
 }
 
-export default createStore(rootReducer, composeWithDevTools())
+const coursesReducer = (state = initialCourses, action) => {
+ return state
+}
+
+export default createStore(combineReducers({rootReducer, coursesReducer}), composeWithDevTools())
