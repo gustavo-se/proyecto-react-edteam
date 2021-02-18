@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import CoursesContext from "../Context/CoursesContext";
 import CourseGrid from "../organisms/CourseGrid";
 
 const Courses = () => {
- return (
-  <CoursesContext.Consumer>
-   {context => <CourseGrid courses={context.courses} />}
-  </CoursesContext.Consumer>
- );
+ const { courses } = useContext(CoursesContext);
+
+ return <CourseGrid courses={courses} />;
 };
 
 export default Courses;
